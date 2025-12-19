@@ -19,7 +19,7 @@ const Footer = () => {
               Workcircle
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
-              Premium coworking spaces in Chennai. Flexible solutions for modern professionals.
+              Premium co-working spaces in Chennai. Flexible solutions for modern professionals.
             </p>
           </div>
 
@@ -80,10 +80,6 @@ const Footer = () => {
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 shrink-0" />
                 <span>+91 93449 59599</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0" />
-                <span>hello@workcircle.com</span>
               </li>
             </ul>
           </div>

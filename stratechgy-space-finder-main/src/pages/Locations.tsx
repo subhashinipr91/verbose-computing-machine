@@ -83,7 +83,7 @@ const Locations = () => {
                 <span className="font-medium">Anna Nagar</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Hourly Coworking Space
+                Hourly Co-working Space
               </h2>
               <p className="text-muted-foreground mb-6">
                 Our Anna Nagar location is perfect for freelancers, remote workers,

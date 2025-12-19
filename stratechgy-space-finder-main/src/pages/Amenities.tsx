@@ -81,6 +81,18 @@ const Amenities = () => {
       src: "/hall.webp",
       alt: "Workcircle Hall View",
     },
+    {
+      src: "/WhatsApp Image 2025-12-19 at 11.56.11 AM (1).jpeg",
+      alt: "Workcircle Office Space",
+    },
+    {
+      src: "/WhatsApp Image 2025-12-19 at 11.56.11 AM (2).jpeg",
+      alt: "Workcircle Meeting Room",
+    },
+    {
+      src: "/WhatsApp Image 2025-12-19 at 11.56.11 AM.jpeg",
+      alt: "Workcircle Workspace",
+    },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -165,7 +177,7 @@ const Amenities = () => {
             Our Spaces
           </h2>
           <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            Take a virtual tour of our premium coworking spaces
+            Take a virtual tour of our premium co-working spaces
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {galleryImages.map((image, index) => (

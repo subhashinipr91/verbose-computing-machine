@@ -32,8 +32,8 @@ const Index = () => {
 
   const faqs = [
     {
-      question: "What's the difference between Anna Nagar and Velachery?",
-      answer: "Anna Nagar offers hourly coworking desks perfect for freelancers and short meetings. Velachery provides monthly office rentals ideal for startups and teams needing dedicated space.",
+      question: "What's the difference between your Anna Nagar and Velachery locations?",
+      answer: "Anna Nagar offers hourly co-working desks perfect for freelancers and short meetings. Velachery provides monthly office rentals ideal for startups and teams needing dedicated space.",
     },
     {
       question: "Do I need to book in advance?",
@@ -58,9 +58,9 @@ const Index = () => {
         <div className="container-max">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in">
-              Flexible Coworking Spaces in Chennai
+              Flexible Co-working Spaces in Chennai
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+            <p className="text-lg text-muted-foreground animate-fade-in" style={{ animationDelay: "0.1s" }}>
               Hourly desks in Anna Nagar. Monthly offices in Velachery.
               <br className="hidden sm:block" />
               Premium workspaces designed for modern professionals.
@@ -132,7 +132,7 @@ const Index = () => {
                   <span className="font-medium">Anna Nagar</span>
                 </div>
                 <h3 className="text-2xl font-bold text-foreground mb-2">
-                  Hourly Coworking
+                  Hourly Co-working
                 </h3>
                 <p className="text-muted-foreground mb-6">
                   Perfect for freelancers, remote workers, and quick meetings.
