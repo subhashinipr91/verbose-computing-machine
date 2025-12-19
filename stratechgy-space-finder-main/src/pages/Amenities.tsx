@@ -42,6 +42,8 @@ const Amenities = () => {
     location: "",
     message: "",
   });
+  // Added state for form submission
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (location.hash === "#contact") {
@@ -53,6 +55,67 @@ const Amenities = () => {
       }
     }
   }, [location]);
+
+  // Updated handleSubmit function to use Web3Forms API
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.location || !formData.message) {
+      toast({
+        title: "Please fill all required fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      // Prepare form data for Web3Forms
+      const formDataToSend = new FormData();
+      formDataToSend.append("access_key", "e827c0c5-2cd7-4c3f-ae5f-6d4cf1f046ce");
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("phone", formData.phone);
+      formDataToSend.append("location", formData.location);
+      formDataToSend.append("message", formData.message);
+      
+      // Submit to Web3Forms API
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend,
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        toast({
+          title: "Message sent successfully!",
+          description: "We'll get back to you within 24 hours.",
+        });
+        
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          location: "",
+          message: "",
+        });
+      } else {
+        throw new Error(result.message || "Failed to send message");
+      }
+    } catch (error) {
+      toast({
+        title: "Error sending message",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const amenities = [
     { icon: Wifi, name: "High-Speed WiFi", description: "100 Mbps dedicated internet" },
@@ -94,34 +157,6 @@ const Amenities = () => {
       alt: "Workcircle Workspace",
     },
   ];
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.location || !formData.message) {
-      toast({
-        title: "Please fill all required fields",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // Show success message
-    toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you within 24 hours.",
-    });
-
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      location: "",
-      message: "",
-    });
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -309,8 +344,13 @@ const Amenities = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
-                    Send Message
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>

@@ -81,6 +81,11 @@ const Footer = () => {
                 <Phone className="h-4 w-4 shrink-0" />
                 <span>+91 93449 59599</span>
               </li>
+              {/* Added email address */}
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 shrink-0" />
+                <span>Workcircle.in@gmail.com</span>
+              </li>
             </ul>
           </div>
         </div>
